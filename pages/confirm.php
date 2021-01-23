@@ -10,15 +10,10 @@
     $user = "productdb_admin";
     $password = "admin123";
     
-    // データベース接続オブジェクトを取得
     $pdo = new PDO($dsn, $user, $password);
-    // 実行するSQLを設定
     $sql = "select max(id) as max from product";
-    // SQL実行オブジェクトを取得
     $pstmt = $pdo->prepare($sql);
-    // SQLを実行
     $pstmt->execute();
-    // SQL実行結果を配列に取得
     $max = $pstmt->fetchAll(PDO::FETCH_ASSOC);
     $max = (int)$max[0][max];
     isset($_POST["id"]) ? $id = $_POST["id"] : $id = $max + 1;

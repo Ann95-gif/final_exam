@@ -4,15 +4,10 @@
     $user = "productdb_admin";
     $password = "admin123";
     
-    // データベース接続オブジェクトを取得
     $pdo = new PDO($dsn, $user, $password);
-    // 実行するSQLを設定
     $sql = "select * from product";
-    // SQL実行オブジェクトを取得
     $pstmt = $pdo->prepare($sql);
-    // SQLを実行
     $pstmt->execute();
-    // SQL実行結果を配列に取得
     $records = $pstmt->fetchAll(PDO::FETCH_ASSOC);
     
 ?>

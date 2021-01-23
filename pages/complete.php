@@ -10,9 +10,7 @@
     $user = "productdb_admin";
     $password = "admin123";
     
-    // データベース接続オブジェクトを取得
     $pdo = new PDO($dsn, $user, $password);
-    // 実行するSQLを設定
     if($action == "update"){
         $sql = "update product 
                 set name = ?,price = ?, category = ?, detail = ? 
@@ -38,11 +36,9 @@
         $pstmt->bindValue(2, $price);
         $pstmt->bindValue(3, $category);
         $pstmt->bindValue(4, $detail);
-        // SQLを実行
         $pstmt->execute();
         
     }
-    // SQL実行オブジェクトを取得
     var_dump($id);
 
 ?>
